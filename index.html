@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Icon Inspire × Zorian — Customer Experience Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Sora:wght@100;200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0A0A0A;
+    --bg-card: #111111;
+    --bg-card-2: #161616;
+    --ink: #FAFAFA;
+    --ink-soft: #B4B4B4;
+    --muted: #C8C8C8;
+    --line: rgba(255,255,255,0.08);
+    --line-strong: rgba(255,255,255,0.16);
+    --accent: #B8FF5C;
+    --accent-dim: #7CC73D;
+    --accent-glow: rgba(184,255,92,0.18);
+    --red: #FF6B5C;
+    --warn: #FFD66B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Sora', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    font-weight: 300;
+  }
+
+  /* Subtle grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 56px 56px;
+    z-index: 0;
+  }
+
+  /* Subtle noise grain */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    z-index: 1;
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ============ TOP BAR ============ */
+  .top-bar {
+    border-bottom: 1px solid var(--line);
+    padding: 20px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    position: relative;
+    z-index: 3;
+  }
+  .top-bar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .wordmark {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.24em;
+    color: var(--ink);
+  }
+  .wordmark .dot { color: var(--accent); }
+
+  /* ============ HERO ============ */
+  .hero {
+    padding: 100px 0 120px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 60%;
+    height: 120%;
+    background: radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hero-label::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .hero h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(52px, 7.5vw, 108px);
+    font-weight: 200;
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    color: var(--ink);
+    max-width: 1100px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 300;
+  }
+
+  /* Exclusively-for dedication */
+  .dedication {
+    margin-top: 56px;
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .dedication-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .dedication-text em {
+    font-style: normal;
+    color: var(--accent);
+  }
+  .dedication-seal {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    padding: 6px 14px;
+    border: 1px solid var(--accent);
+    border-radius: 100px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .hero-meta {
+    margin-top: 56px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .hero-meta-item .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+  }
+  .hero-meta-item .value {
+    font-family: 'Sora', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+
+  /* ============ SECTIONS ============ */
+  .section {
+    padding: 140px 0;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .section-badge {
+    display: inline-block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    padding: 6px 14px;
+    border: 1px solid var(--accent);
+    border-radius: 100px;
+    margin-bottom: 24px;
+    font-weight: 600;
+  }
+  .section-heading {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(40px, 5vw, 68px);
+    font-weight: 200;
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    margin-bottom: 24px;
+    max-width: 900px;
+  }
+  .section-heading em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 300;
+  }
+  .section-sub {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 680px;
+    line-height: 1.55;
+    margin-bottom: 64px;
+    font-weight: 300;
+  }
+
+  /* ============ PROBLEM ============ */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .big-stat-block {
+    position: relative;
+  }
+  .big-stat {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(110px, 14vw, 220px);
+    font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    color: var(--red);
+    margin-bottom: 16px;
+    text-shadow: 0 0 80px rgba(255,107,92,0.3);
+  }
+  .big-stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+  .problem-points {
+    list-style: none;
+    padding: 0;
+  }
+  .problem-points li {
+    padding: 20px 0;
+    border-top: 1px solid var(--line);
+    font-size: 16px;
+    line-height: 1.55;
+    display: flex;
+    gap: 16px;
+    color: var(--ink-soft);
+    font-weight: 300;
+  }
+  .problem-points li:last-child { border-bottom: 1px solid var(--line); }
+  .problem-points li .num {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.14em;
+    padding-top: 4px;
+    min-width: 28px;
+    font-weight: 600;
+  }
+
+  /* ============ CALCULATOR ============ */
+  .calc-wrapper {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+  .calc-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.6;
+  }
+  .calc-controls {
+    padding: 48px;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-card-2);
+  }
+  .calc-controls-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+  .control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .control-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .control-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 2px;
+    background: var(--line-strong);
+    outline: none;
+    cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--accent);
+    border-radius: 50%;
+    cursor: grab;
+    box-shadow: 0 0 0 4px var(--bg-card-2), 0 0 20px var(--accent-glow);
+    transition: transform 0.15s ease;
+  }
+  input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.2); }
+  input[type="range"]::-webkit-slider-thumb:active { cursor: grabbing; }
+  input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: var(--accent);
+    border-radius: 50%;
+    cursor: grab;
+    border: none;
+    box-shadow: 0 0 0 4px var(--bg-card-2);
+  }
+  .control-range {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* Tabs */
+  .scenario-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-card-2);
+  }
+  .tab {
+    flex: 1;
+    padding: 22px 24px;
+    background: transparent;
+    border: none;
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    text-align: left;
+  }
+  .tab:first-child { border-right: 1px solid var(--line); }
+  .tab.active {
+    color: var(--ink);
+    background: var(--bg-card);
+    border-bottom-color: var(--accent);
+  }
+  .tab .tab-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--red);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .tab.new-state .tab-label { color: var(--accent); }
+
+  .scenario-panel {
+    padding: 0;
+    display: none;
+  }
+  .scenario-panel.active {
+    display: block;
+    animation: fadeIn 0.4s ease;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    padding: 48px;
+  }
+  .metric {
+    padding: 0 32px;
+    border-right: 1px solid var(--line);
+  }
+  .metric:last-child { border-right: none; }
+  .metric:first-child { padding-left: 0; }
+  .metric-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .metric-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .metric-value.red { color: var(--red); }
+  .metric-value.accent { color: var(--accent); }
+  .metric-sub {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Uplift */
+  .uplift-panel {
+    padding: 56px 48px;
+    background: linear-gradient(135deg, rgba(184,255,92,0.04) 0%, rgba(184,255,92,0.01) 100%);
+    border-top: 1px solid var(--line);
+    position: relative;
+  }
+  .uplift-panel::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.4;
+  }
+  .uplift-heading {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    margin-bottom: 28px;
+    font-weight: 600;
+  }
+  .uplift-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+  }
+  .uplift-metric .label {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 14px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .uplift-metric .value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 52px;
+    line-height: 1;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.03em;
+  }
+  .uplift-metric .sub {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ============ SOLUTION FLOW ============ */
+  .flow-wrapper {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+    background: var(--bg-card);
+  }
+  .flow-step {
+    padding: 48px 40px;
+    border-right: 1px solid var(--line);
+    position: relative;
+  }
+  .flow-step:last-child { border-right: none; }
+  .flow-step-num {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 72px;
+    font-weight: 800;
+    line-height: 0.9;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    opacity: 0.9;
+  }
+  .flow-step h4 {
+    font-family: 'Sora', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .flow-step .who {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 16px;
+    display: inline-block;
+    padding: 5px 12px;
+    background: rgba(184,255,92,0.08);
+    border: 1px solid rgba(184,255,92,0.2);
+    border-radius: 2px;
+  }
+  .flow-step p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .flow-step .time {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+  .flow-step .time strong { color: var(--accent); font-weight: 500; }
+
+  /* ============ TIMELINE ============ */
+  .timeline-wrapper {
+    margin-top: 32px;
+  }
+  .timeline-tabs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--line);
+    border-bottom: none;
+    background: var(--bg-card);
+  }
+  .timeline-tab {
+    padding: 28px 24px;
+    background: transparent;
+    border: none;
+    border-right: 1px solid var(--line);
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.25s ease;
+    color: var(--ink);
+  }
+  .timeline-tab:last-child { border-right: none; }
+  .timeline-tab:hover { background: var(--bg-card-2); }
+  .timeline-tab.active {
+    background: var(--accent);
+    color: var(--bg);
+  }
+  .timeline-tab .week {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .timeline-tab.active .week { color: var(--bg); }
+  .timeline-tab .title {
+    font-family: 'Sora', sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  .timeline-content {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 48px;
+    min-height: 320px;
+  }
+  .timeline-pane { display: none; animation: fadeIn 0.3s ease; }
+  .timeline-pane.active { display: grid; grid-template-columns: 1fr 2fr; gap: 64px; }
+  .timeline-pane .overview h3 {
+    font-family: 'Sora', sans-serif;
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .timeline-pane .overview h3 em { font-style: italic; color: var(--accent); }
+  .timeline-pane .overview p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .timeline-pane ul {
+    list-style: none;
+    padding: 0;
+    counter-reset: step;
+  }
+  .timeline-pane li {
+    padding: 16px 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    align-items: start;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .timeline-pane li:last-child { border-bottom: 1px solid var(--line); }
+  .timeline-pane li::before {
+    content: counter(step, decimal-leading-zero);
+    counter-increment: step;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    padding-top: 2px;
+    font-weight: 600;
+  }
+
+  /* ============ PRICING ============ */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin-top: 32px;
+    border: 1px solid var(--line);
+    background: var(--bg-card);
+  }
+  .pricing-side {
+    padding: 56px 48px;
+    border-right: 1px solid var(--line);
+  }
+  .pricing-side:last-child {
+    border-right: none;
+    background: linear-gradient(180deg, rgba(184,255,92,0.05) 0%, transparent 100%);
+    position: relative;
+  }
+  .pricing-side:last-child::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent);
+  }
+  .pricing-side .label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--muted);
+    margin-bottom: 24px;
+    display: block;
+    font-weight: 600;
+  }
+  .pricing-side:last-child .label { color: var(--accent); }
+  .pricing-side h3 {
+    font-family: 'Sora', sans-serif;
+    font-size: 34px;
+    font-weight: 300;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .pricing-side h3 em { font-style: italic; color: var(--accent); }
+  .pricing-side p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+    color: var(--ink-soft);
+    font-weight: 300;
+  }
+  .pricing-big {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 84px;
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin: 32px 0 16px;
+    color: var(--accent);
+  }
+  .pricing-big .of {
+    font-size: 0.2em;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 8px;
+  }
+  .pricing-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 24px;
+  }
+  .pricing-list li {
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--ink-soft);
+    font-weight: 300;
+  }
+  .pricing-list li::before {
+    content: '→';
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* ============ CTA ============ */
+  .cta-section {
+    padding: 160px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 55%);
+    pointer-events: none;
+  }
+  .cta-section .section-badge { margin-bottom: 32px; }
+  .cta-section h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(48px, 7vw, 96px);
+    font-weight: 200;
+    line-height: 1;
+    letter-spacing: -0.035em;
+    margin-bottom: 32px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-section h2 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 300;
+  }
+  .cta-section p {
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 580px;
+    margin: 0 auto 56px;
+    line-height: 1.55;
+    font-weight: 300;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+  }
+  .btn {
+    padding: 20px 44px;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: var(--bg);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 2px;
+  }
+  .btn:hover {
+    background: transparent;
+    color: var(--accent);
+    box-shadow: 0 0 40px var(--accent-glow);
+    transform: translateY(-2px);
+  }
+  .btn.secondary {
+    background: transparent;
+    color: var(--ink);
+    border-color: var(--line-strong);
+  }
+  .btn.secondary:hover { border-color: var(--ink); color: var(--ink); box-shadow: none; }
+
+  /* Footer */
+  footer {
+    padding: 40px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+    position: relative;
+    z-index: 2;
+  }
+  footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .container { padding: 0 32px; }
+    .hero-meta { grid-template-columns: repeat(2, 1fr); }
+    .problem-grid { grid-template-columns: 1fr; gap: 48px; }
+    .calc-controls-grid { grid-template-columns: 1fr; gap: 32px; }
+    .metric-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; padding: 32px; }
+    .metric { padding: 0; border-right: none; }
+    .uplift-grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .flow-wrapper { grid-template-columns: 1fr; }
+    .flow-step { border-right: none; border-bottom: 1px solid var(--line); }
+    .flow-step:last-child { border-bottom: none; }
+    .timeline-tabs { grid-template-columns: repeat(2, 1fr); }
+    .timeline-tab:nth-child(2) { border-right: none; }
+    .timeline-pane.active { grid-template-columns: 1fr; gap: 32px; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-side:first-child { border-right: none; border-bottom: 1px solid var(--line); }
+    .pricing-side:last-child::before { width: 100%; height: 4px; top: 0; left: 0; }
+    .dedication { flex-direction: column; align-items: flex-start; }
+  }
+  @media (max-width: 640px) {
+    .container { padding: 0 20px; }
+    .hero { padding: 60px 0 80px; }
+    .hero-meta { grid-template-columns: 1fr; gap: 20px; }
+    .section { padding: 80px 0; }
+    .calc-controls { padding: 32px 24px; }
+    .metric-grid { grid-template-columns: 1fr; }
+    .uplift-panel { padding: 32px 24px; }
+    .uplift-grid { grid-template-columns: 1fr; }
+    .pricing-side { padding: 32px 24px; }
+    .timeline-content { padding: 32px 24px; }
+    .flow-step { padding: 32px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="container">
+    <div class="wordmark">ZORIAN<span class="dot">.</span></div>
+    <div>Confidential Proposal — Prepared for Jodie</div>
+    <div>APRIL 2026</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-label">A Growth Proposal for Icon Inspire</div>
+    <h1>Stop losing deals to <em>slow replies.</em></h1>
+
+    <div class="dedication">
+      <div class="dedication-text">Prepared <em>exclusively</em> for Icon Inspire Beauty Clinic — one of fewer than five clinics Zorian will onboard this quarter.</div>
+      <div class="dedication-seal">◆ INVITATION ONLY</div>
+    </div>
+
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Prepared for</span>
+        <span class="value">Jodie, Icon Inspire</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Prepared by</span>
+        <span class="value">Jaydon, Zorian</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Engagement</span>
+        <span class="value">Customer Experience</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Model</span>
+        <span class="value">Revenue Share, Uplift Only</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section class="section">
+  <div class="container">
+    <span class="section-badge">01 — THE BOTTLENECK</span>
+    <h2 class="section-heading">You're not losing clients on <em>price.</em> You're losing them on <em>time.</em></h2>
+    <p class="section-sub">Your close rate is already strong. You upsell almost every inquiry into a membership package. The real cost sits upstream: inquiries waiting 24 to 48 hours for a reply, losing momentum, booking elsewhere.</p>
+
+    <div class="problem-grid">
+      <div class="big-stat-block">
+        <div class="big-stat">24–48</div>
+        <div class="big-stat-label">Hour Reply Lag</div>
+      </div>
+      <ul class="problem-points">
+        <li><span class="num">01</span><span>Inquiries sit unanswered while prospects cool off, message competitors, or forget altogether.</span></li>
+        <li><span class="num">02</span><span>Every message that requires a phone call adds friction — most prospects never make the switch from DM to call.</span></li>
+        <li><span class="num">03</span><span>A growing customer base means the problem compounds. The more demand you have, the more revenue you leak.</span></li>
+        <li><span class="num">04</span><span>A generic answering service can't replicate what makes you close — custom plans need your voice, your expertise, your framework.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE CALCULATOR -->
+<section class="section">
+  <div class="container">
+    <span class="section-badge">02 — THE MATH</span>
+    <h2 class="section-heading">Adjust the dials. <em>Watch the money move.</em></h2>
+    <p class="section-sub">Slide the values below to match your actual numbers. Switch between tabs to see the gap between where you are now and where we could be together.</p>
+
+    <div class="calc-wrapper">
+
+      <!-- CONTROLS -->
+      <div class="calc-controls">
+        <div class="calc-controls-grid">
+          <div class="control-group">
+            <div class="control-label">
+              <span>Weekly Inquiries</span>
+              <span class="control-value" id="val-inquiries">25</span>
+            </div>
+            <input type="range" id="inquiries" min="10" max="80" value="25" step="1">
+            <div class="control-range"><span>10</span><span>80</span></div>
+          </div>
+          <div class="control-group">
+            <div class="control-label">
+              <span>Avg Deal Value</span>
+              <span class="control-value">£<span id="val-deal">1,000</span></span>
+            </div>
+            <input type="range" id="deal" min="250" max="2500" value="1000" step="50">
+            <div class="control-range"><span>£250</span><span>£2,500</span></div>
+          </div>
+          <div class="control-group">
+            <div class="control-label">
+              <span>Projected Conv. Lift</span>
+              <span class="control-value">+<span id="val-lift">10</span>%</span>
+            </div>
+            <input type="range" id="lift" min="5" max="20" value="10" step="1">
+            <div class="control-range"><span>+5%</span><span>+20%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABS -->
+      <div class="scenario-tabs">
+        <button class="tab current-state active" data-tab="current">
+          <span class="tab-label">Scenario A</span>
+          Today — Without Zorian
+        </button>
+        <button class="tab new-state" data-tab="new">
+          <span class="tab-label">Scenario B</span>
+          With AI + Human Closer
+        </button>
+      </div>
+
+      <!-- CURRENT PANEL -->
+      <div class="scenario-panel active" id="panel-current">
+        <div class="metric-grid">
+          <div class="metric">
+            <div class="metric-label">Missed Leads / Week</div>
+            <div class="metric-value red"><span id="cur-missed">18</span></div>
+            <div class="metric-sub">Cooled off, booked elsewhere</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Inquiry → Sale</div>
+            <div class="metric-value red"><span id="cur-conv">15</span>%</div>
+            <div class="metric-sub">Lost to lag &amp; friction</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Weekly Revenue</div>
+            <div class="metric-value">£<span id="cur-weekly">4,500</span></div>
+            <div class="metric-sub">From membership upsells</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Monthly Revenue</div>
+            <div class="metric-value">£<span id="cur-monthly">18,000</span></div>
+            <div class="metric-sub">What's reaching the bank</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEW PANEL -->
+      <div class="scenario-panel" id="panel-new">
+        <div class="metric-grid">
+          <div class="metric">
+            <div class="metric-label">Missed Leads / Week</div>
+            <div class="metric-value accent">0</div>
+            <div class="metric-sub">Every inquiry captured in 60s</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Inquiry → Sale</div>
+            <div class="metric-value accent"><span id="new-conv">25</span>%</div>
+            <div class="metric-sub">Warm handoff to VA</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Weekly Revenue</div>
+            <div class="metric-value accent">£<span id="new-weekly">7,500</span></div>
+            <div class="metric-sub">Recovered + new closes</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Monthly Revenue</div>
+            <div class="metric-value accent">£<span id="new-monthly">30,000</span></div>
+            <div class="metric-sub">Projected after onboarding</div>
+          </div>
+        </div>
+
+        <!-- UPLIFT PANEL -->
+        <div class="uplift-panel">
+          <div class="uplift-heading">— The Uplift Breakdown</div>
+          <div class="uplift-grid">
+            <div class="uplift-metric">
+              <div class="label">Weekly Uplift</div>
+              <div class="value">£<span id="uplift-week">3,000</span></div>
+              <div class="sub">New money created</div>
+            </div>
+            <div class="uplift-metric">
+              <div class="label">Monthly Uplift</div>
+              <div class="value">£<span id="uplift-month">12,000</span></div>
+              <div class="sub">Your gain each month</div>
+            </div>
+            <div class="uplift-metric">
+              <div class="label">Annual Uplift</div>
+              <div class="value">£<span id="uplift-year">144,000</span></div>
+              <div class="sub">Year one projection</div>
+            </div>
+            <div class="uplift-metric">
+              <div class="label">Hours Saved / Week</div>
+              <div class="value"><span id="hours-saved">12</span>h</div>
+              <div class="sub">Back in your diary</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="section">
+  <div class="container">
+    <span class="section-badge">03 — THE SOLUTION</span>
+    <h2 class="section-heading">Your upsell <em>magic</em> — at <em>scale.</em></h2>
+    <p class="section-sub">A hybrid model that combines instant AI-powered response with human closing. The AI never pretends to be you. It handles triage. A dedicated VA handles the pitch using your exact framework.</p>
+
+    <div class="flow-wrapper">
+      <div class="flow-step">
+        <div class="flow-step-num">01</div>
+        <div class="who">AI Triage</div>
+        <h4>Instant Response</h4>
+        <p>A WhatsApp inquiry lands. Within seconds, the AI replies in your tone, acknowledges their concern, gathers the intel we need — treatment area, pain point, timeline, urgency.</p>
+        <div class="time"><strong>&lt; 60 seconds</strong> — automated</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">02</div>
+        <div class="who">Warm Brief</div>
+        <h4>Qualified Handoff</h4>
+        <p>AI produces a short brief for the VA: what they asked, what they need, the angle to pitch. No more starting from zero on every message.</p>
+        <div class="time"><strong>Real-time brief</strong> — piped to Slack</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-step-num">03</div>
+        <div class="who">Human Close</div>
+        <h4>The Custom Plan</h4>
+        <p>The VA follows up personally using your upsell framework — the custom package, the membership pitch, the full consultative close. Your voice, your value, without your time.</p>
+        <div class="time"><strong>&lt; 2 hours</strong> — from first message</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section">
+  <div class="container">
+    <span class="section-badge">04 — THE ROLLOUT</span>
+    <h2 class="section-heading">Four weeks to <em>live.</em></h2>
+    <p class="section-sub">Click each week to see what we're doing, together. No long ramp, no lock-in. By week four you're selling more without touching the phone.</p>
+
+    <div class="timeline-wrapper">
+      <div class="timeline-tabs">
+        <button class="timeline-tab active" data-week="1">
+          <span class="week">WEEK 01</span>
+          <span class="title">Blueprint</span>
+        </button>
+        <button class="timeline-tab" data-week="2">
+          <span class="week">WEEK 02</span>
+          <span class="title">Build</span>
+        </button>
+        <button class="timeline-tab" data-week="3">
+          <span class="week">WEEK 03</span>
+          <span class="title">Soft Launch</span>
+        </button>
+        <button class="timeline-tab" data-week="4">
+          <span class="week">WEEK 04</span>
+          <span class="title">Scale</span>
+        </button>
+      </div>
+
+      <div class="timeline-content">
+        <div class="timeline-pane active" data-pane="1">
+          <div class="overview">
+            <h3>Your <em>playbook,</em> mapped.</h3>
+            <p>We start with you. I spend the week shadowing your upsell process, extracting your framework, and mapping every service into structured logic the AI can use.</p>
+          </div>
+          <ul>
+            <li>Full audit of your service menu, pricing, and membership packages</li>
+            <li>Deep-dive interview — your voice, tone, objection handling, custom-plan logic</li>
+            <li>Recorded walkthrough of 10+ past inquiries and how you converted them</li>
+            <li>Integration check — Fresha, WhatsApp Business, booking flow mapped</li>
+          </ul>
+        </div>
+
+        <div class="timeline-pane" data-pane="2">
+          <div class="overview">
+            <h3>The <em>engine,</em> built.</h3>
+            <p>We build the AI triage system to your exact spec. Responses trained on your language, logic to route high-value inquiries straight to your dedicated VA with a full brief.</p>
+          </div>
+          <ul>
+            <li>WhatsApp Business API connected to AI triage layer</li>
+            <li>Response templates written in your tone, reviewed by you</li>
+            <li>Qualification logic built — what's high-value vs. quick-answer</li>
+            <li>Private handoff channel set up so the VA sees briefs in real-time</li>
+          </ul>
+        </div>
+
+        <div class="timeline-pane" data-pane="3">
+          <div class="overview">
+            <h3>Live, under <em>watch.</em></h3>
+            <p>We go live but quietly. Every AI reply gets reviewed by you or the VA before sending for the first week. Zero risk of a wrong answer reaching a client.</p>
+          </div>
+          <ul>
+            <li>AI responses go live in "review mode" — nothing sends without approval</li>
+            <li>The VA personally handles every high-value handoff to validate the model</li>
+            <li>Daily debrief — what worked, what needs tweaking, what to cut</li>
+            <li>First real uplift numbers measured vs. baseline</li>
+          </ul>
+        </div>
+
+        <div class="timeline-pane" data-pane="4">
+          <div class="overview">
+            <h3>Your <em>time</em> is yours again.</h3>
+            <p>AI goes full auto on the triage layer. I'm running all handoffs and closes. You stop being the inbox. Your days become treatments, not typing.</p>
+          </div>
+          <ul>
+            <li>AI fully autonomous on standard inquiries — no review required</li>
+            <li>Dedicated VA running all closes — custom plans, memberships, follow-ups</li>
+            <li>Weekly revenue report showing lift vs. baseline, split calculations ready</li>
+            <li>Ongoing optimisation — monthly review to scale capacity as volume grows</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section">
+  <div class="container">
+    <span class="section-badge">05 — THE DEAL</span>
+    <h2 class="section-heading">I only win <em>when you win.</em></h2>
+    <p class="section-sub">No fixed retainer. No upfront lock-in. I take a share of the <em>new</em> revenue we create together — measured against your current baseline.</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-side">
+        <span class="label">What Icon Inspire Pays</span>
+        <h3>The <em>uplift-only</em> model.</h3>
+        <p>Your current revenue is yours — 100%. I don't touch a penny of the baseline. I only share in the <em>new</em> money we generate above it.</p>
+        <div class="pricing-big">25%<span class="of">of uplift only</span></div>
+        <ul class="pricing-list">
+          <li>Baseline locked in Week 1 — measured from your last 3 months</li>
+          <li>Anything above baseline is "uplift" — we split 75 / 25</li>
+          <li>No uplift? You pay nothing. Simple.</li>
+          <li>Minimum 3-month commitment to measure fairly</li>
+        </ul>
+      </div>
+
+      <div class="pricing-side">
+        <span class="label">What You Get</span>
+        <h3>Full <em>customer experience</em> overhaul.</h3>
+        <p>Not a tool. Not a retainer. A done-for-you growth engine that gives you your diary back while lifting your revenue materially.</p>
+        <div class="pricing-big">£0<span class="of">upfront. ever.</span></div>
+        <ul class="pricing-list">
+          <li>AI triage system built to your spec, fully managed</li>
+          <li>Dedicated VA as your closer on all high-value inquiries</li>
+          <li>Weekly performance report, full transparency on revenue</li>
+          <li>All infrastructure, WhatsApp API, and integrations included</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <span class="section-badge">06 — NEXT STEPS</span>
+    <h2>Let's get your <em>Fridays</em> back.</h2>
+    <p>The maths is already on the table. The only question left is how fast we can start. I'll have the AI triage live within 14 days of a yes.</p>
+    <div class="cta-buttons">
+      <a href="mailto:jaydon@zorian.ai" class="btn">Let's Start</a>
+      <a href="#" class="btn secondary" onclick="window.print(); return false;">Save as PDF</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="wordmark">ZORIAN<span class="dot">.</span></div>
+    <div>Prepared by Jaydon — APRIL 2026</div>
+    <div>ZORIAN.AI</div>
+  </div>
+</footer>
+
+<script>
+  const inquiriesInput = document.getElementById('inquiries');
+  const dealInput = document.getElementById('deal');
+  const liftInput = document.getElementById('lift');
+  const CURRENT_CONV = 0.10;
+  const HOURS_SAVED_PER_INQUIRY = 0.4;
+
+  function fmt(n) { return n.toLocaleString('en-GB', { maximumFractionDigits: 0 }); }
+
+  function recalc() {
+    const inquiries = parseInt(inquiriesInput.value);
+    const deal = parseInt(dealInput.value);
+    const liftPct = parseInt(liftInput.value);
+
+    document.getElementById('val-inquiries').textContent = inquiries;
+    document.getElementById('val-deal').textContent = fmt(deal);
+    document.getElementById('val-lift').textContent = liftPct;
+
+    const curConv = CURRENT_CONV;
+    const curWeekly = inquiries * curConv * deal;
+    const curMonthly = curWeekly * 4;
+
+    document.getElementById('cur-conv').textContent = (curConv * 100).toFixed(0);
+    document.getElementById('cur-weekly').textContent = fmt(curWeekly);
+    document.getElementById('cur-monthly').textContent = fmt(curMonthly);
+
+    // Missed leads: roughly 70% of inquiries cool off during 24-48h reply lag
+    const missedLeads = Math.round(inquiries * 0.70);
+    document.getElementById('cur-missed').textContent = missedLeads;
+
+    const newConv = curConv + (liftPct / 100);
+    const newWeekly = inquiries * newConv * deal;
+    const newMonthly = newWeekly * 4;
+
+    document.getElementById('new-conv').textContent = (newConv * 100).toFixed(0);
+    document.getElementById('new-weekly').textContent = fmt(newWeekly);
+    document.getElementById('new-monthly').textContent = fmt(newMonthly);
+
+    const upliftWeek = newWeekly - curWeekly;
+    const upliftMonth = upliftWeek * 4;
+    const upliftYear = upliftWeek * 52;
+    const hoursSaved = Math.round(inquiries * HOURS_SAVED_PER_INQUIRY);
+
+    document.getElementById('uplift-week').textContent = fmt(upliftWeek);
+    document.getElementById('uplift-month').textContent = fmt(upliftMonth);
+    document.getElementById('uplift-year').textContent = fmt(upliftYear);
+    document.getElementById('hours-saved').textContent = hoursSaved;
+  }
+
+  inquiriesInput.addEventListener('input', recalc);
+  dealInput.addEventListener('input', recalc);
+  liftInput.addEventListener('input', recalc);
+  recalc();
+
+  document.querySelectorAll('.tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.scenario-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  document.querySelectorAll('.timeline-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.timeline-tab').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.timeline-pane').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector('[data-pane="' + btn.dataset.week + '"]').classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
