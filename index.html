@@ -789,6 +789,287 @@
     font-weight: 500;
   }
 
+  /* ============ TIER PLACEMENT STRIP (in calc) ============ */
+  .tier-placement {
+    margin-top: 32px;
+    padding: 28px 32px;
+    background: rgba(184,255,92,0.05);
+    border: 1px solid rgba(184,255,92,0.2);
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    position: relative;
+    overflow: hidden;
+  }
+  .tier-placement::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 100%;
+    background: var(--accent);
+  }
+  .tier-placement-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    margin-bottom: 8px;
+  }
+  .tier-placement-name {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+  .tier-placement-price {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+  }
+  .tier-placement-right {
+    display: flex;
+    gap: 32px;
+  }
+  .tier-result {
+    text-align: right;
+  }
+  .tier-result-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 6px;
+  }
+  .tier-result-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .tier-result-sub {
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ============ DEAL BANNER (build fee) ============ */
+  .deal-banner {
+    margin-top: 32px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .deal-banner::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: -1px; right: -1px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0.6;
+  }
+  .deal-banner-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+  .deal-banner-price {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 96px;
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .deal-banner-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+  .deal-banner-right p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+  /* ============ DEAL SUBHEADING ============ */
+  .deal-subheading {
+    margin-top: 64px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .deal-subheading-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    color: var(--ink);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+  }
+  .deal-subheading-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  /* ============ TIER GRID ============ */
+  .tier-grid {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+    background: var(--bg-card);
+  }
+  .tier-card {
+    padding: 40px 32px;
+    border-right: 1px solid var(--line);
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .tier-card:last-child { border-right: none; }
+  .tier-card.active {
+    background: linear-gradient(180deg, rgba(184,255,92,0.08) 0%, rgba(184,255,92,0.02) 60%, transparent 100%);
+  }
+  .tier-card.active::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    box-shadow: 0 0 20px var(--accent-glow);
+  }
+  .tier-card .tier-badge {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+  }
+  .tier-card.active .tier-badge { color: var(--accent); }
+  .tier-name {
+    font-family: 'Sora', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-top: 8px;
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+  }
+  .tier-card.active .tier-name { color: var(--accent); }
+  .tier-price {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 44px;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.03em;
+  }
+  .tier-card.active .tier-price { color: var(--accent); }
+  .tier-price-sub {
+    margin-top: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.14em;
+  }
+  .tier-range {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--line);
+  }
+  .range-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .range-value {
+    font-family: 'Sora', sans-serif;
+    font-size: 14px;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+  .tier-card.active .range-value { color: var(--ink); }
+
+  /* ============ DEAL INCLUDES ============ */
+  .deal-includes {
+    margin-top: 32px;
+    padding: 32px 40px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+  }
+  .deal-includes-label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .deal-includes-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 48px;
+  }
+  .deal-includes-list li {
+    font-size: 14px;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 300;
+  }
+  .deal-includes-list li::before {
+    content: '→';
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
   /* ============ CTA ============ */
   .cta-section {
     padding: 160px 0;
@@ -906,6 +1187,16 @@
     .pricing-side:first-child { border-right: none; border-bottom: 1px solid var(--line); }
     .pricing-side:last-child::before { width: 100%; height: 4px; top: 0; left: 0; }
     .dedication { flex-direction: column; align-items: flex-start; }
+    .tier-placement { flex-direction: column; align-items: flex-start; }
+    .tier-placement-right { width: 100%; justify-content: space-between; }
+    .tier-result { text-align: left; }
+    .deal-banner { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
+    .deal-banner-price { font-size: 72px; }
+    .tier-grid { grid-template-columns: repeat(2, 1fr); }
+    .tier-card:nth-child(2) { border-right: none; }
+    .tier-card:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .deal-includes-list { grid-template-columns: 1fr; }
+    .deal-subheading { flex-direction: column; align-items: flex-start; gap: 8px; }
   }
   @media (max-width: 640px) {
     .container { padding: 0 20px; }
@@ -919,6 +1210,12 @@
     .pricing-side { padding: 32px 24px; }
     .timeline-content { padding: 32px 24px; }
     .flow-step { padding: 32px 24px; }
+    .tier-grid { grid-template-columns: 1fr; }
+    .tier-card { border-right: none; border-bottom: 1px solid var(--line); }
+    .tier-card:last-child { border-bottom: none; }
+    .deal-banner-price { font-size: 56px; }
+    .tier-placement { padding: 24px; }
+    .tier-placement-right { flex-direction: column; gap: 20px; }
   }
 </style>
 </head>
@@ -959,7 +1256,7 @@
       </div>
       <div class="hero-meta-item">
         <span class="label">Model</span>
-        <span class="value">Revenue Share, Uplift Only</span>
+        <span class="value">Build + Tiered Retainer</span>
       </div>
     </div>
   </div>
@@ -1114,6 +1411,31 @@
               <div class="sub">Back in your diary</div>
             </div>
           </div>
+
+          <!-- TIER PLACEMENT STRIP -->
+          <div class="tier-placement">
+            <div class="tier-placement-left">
+              <div class="tier-placement-label">AT THIS UPLIFT, YOU'RE IN</div>
+              <div class="tier-placement-name">
+                TIER <span id="tier-num">02</span> — <span id="tier-name">GROWTH</span>
+              </div>
+              <div class="tier-placement-price">
+                £<span id="tier-price">1,497</span>/mo retainer + £3,000 one-time build
+              </div>
+            </div>
+            <div class="tier-placement-right">
+              <div class="tier-result">
+                <div class="tier-result-label">Net Year 1</div>
+                <div class="tier-result-value">£<span id="net-year-1">99,036</span></div>
+                <div class="tier-result-sub">After all fees</div>
+              </div>
+              <div class="tier-result">
+                <div class="tier-result-label">Your ROI</div>
+                <div class="tier-result-value"><span id="roi">5.7</span>×</div>
+                <div class="tier-result-sub">Year-one return</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1243,34 +1565,79 @@
   <div class="container">
     <span class="section-badge">05 — THE DEAL</span>
     <h2 class="section-heading">I only win <em>when you win.</em></h2>
-    <p class="section-sub">No fixed retainer. No upfront lock-in. I take a share of the <em>new</em> revenue we create together — measured against your current baseline.</p>
+    <p class="section-sub">A small build investment, then a performance-tiered retainer that climbs only as your revenue does. You stay in control at every level.</p>
 
-    <div class="pricing-grid">
-      <div class="pricing-side">
-        <span class="label">What Icon Inspire Pays</span>
-        <h3>The <em>uplift-only</em> model.</h3>
-        <p>Your current revenue is yours — 100%. I don't touch a penny of the baseline. I only share in the <em>new</em> money we generate above it.</p>
-        <div class="pricing-big">25%<span class="of">of uplift only</span></div>
-        <ul class="pricing-list">
-          <li>Baseline locked in Week 1 — measured from your last 3 months</li>
-          <li>Anything above baseline is "uplift" — we split 75 / 25</li>
-          <li>No uplift? You pay nothing. Simple.</li>
-          <li>Minimum 3-month commitment to measure fairly</li>
-        </ul>
+    <!-- BUILD FEE BANNER -->
+    <div class="deal-banner">
+      <div class="deal-banner-left">
+        <div class="deal-banner-label">ONE-TIME BUILD FEE</div>
+        <div class="deal-banner-price">£3,000</div>
+        <div class="deal-banner-sub">Split 50 / 50 — £1,500 at kick-off, £1,500 at soft launch (Week 3)</div>
       </div>
+      <div class="deal-banner-right">
+        <p>Covers the full build: AI triage system, WhatsApp Business API integration, training on your tone and framework, dedicated VA onboarding, and Week 1–3 setup. Nothing else is invoiced until the system is live and delivering.</p>
+      </div>
+    </div>
 
-      <div class="pricing-side">
-        <span class="label">What You Get</span>
-        <h3>Full <em>customer experience</em> overhaul.</h3>
-        <p>Not a tool. Not a retainer. A done-for-you growth engine that gives you your diary back while lifting your revenue materially.</p>
-        <div class="pricing-big">£0<span class="of">upfront. ever.</span></div>
-        <ul class="pricing-list">
-          <li>AI triage system built to your spec, fully managed</li>
-          <li>Dedicated VA as your closer on all high-value inquiries</li>
-          <li>Weekly performance report, full transparency on revenue</li>
-          <li>All infrastructure, WhatsApp API, and integrations included</li>
-        </ul>
+    <!-- TIER SUBHEADING -->
+    <div class="deal-subheading">
+      <span class="deal-subheading-label">MONTHLY RETAINER — PERFORMANCE TIERED</span>
+      <span class="deal-subheading-note">Tier assessed monthly on your trailing 30-day uplift. Ceiling at Tier 04.</span>
+    </div>
+
+    <!-- TIER GRID -->
+    <div class="tier-grid">
+      <div class="tier-card" data-tier-card="1">
+        <div class="tier-badge">TIER 01</div>
+        <div class="tier-name">Foundation</div>
+        <div class="tier-price">£997</div>
+        <div class="tier-price-sub">PER MONTH</div>
+        <div class="tier-range">
+          <div class="range-label">Monthly Uplift</div>
+          <div class="range-value">£5k – £10k</div>
+        </div>
       </div>
+      <div class="tier-card" data-tier-card="2">
+        <div class="tier-badge">TIER 02</div>
+        <div class="tier-name">Growth</div>
+        <div class="tier-price">£1,497</div>
+        <div class="tier-price-sub">PER MONTH</div>
+        <div class="tier-range">
+          <div class="range-label">Monthly Uplift</div>
+          <div class="range-value">£10k – £15k</div>
+        </div>
+      </div>
+      <div class="tier-card" data-tier-card="3">
+        <div class="tier-badge">TIER 03</div>
+        <div class="tier-name">Scale</div>
+        <div class="tier-price">£1,997</div>
+        <div class="tier-price-sub">PER MONTH</div>
+        <div class="tier-range">
+          <div class="range-label">Monthly Uplift</div>
+          <div class="range-value">£15k – £20k</div>
+        </div>
+      </div>
+      <div class="tier-card" data-tier-card="4">
+        <div class="tier-badge">TIER 04</div>
+        <div class="tier-name">Apex</div>
+        <div class="tier-price">£2,497</div>
+        <div class="tier-price-sub">PER MONTH</div>
+        <div class="tier-range">
+          <div class="range-label">Monthly Uplift</div>
+          <div class="range-value">£20k+</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEAL INCLUDES -->
+    <div class="deal-includes">
+      <div class="deal-includes-label">EVERY TIER INCLUDES</div>
+      <ul class="deal-includes-list">
+        <li>AI triage system built to your spec, fully managed</li>
+        <li>Dedicated VA as your closer on all high-value inquiries</li>
+        <li>Weekly performance report with full revenue transparency</li>
+        <li>All infrastructure — WhatsApp API, Fresha integration, Slack handoff channel</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -1302,8 +1669,20 @@
   const liftInput = document.getElementById('lift');
   const CURRENT_CONV = 0.10;
   const HOURS_SAVED_PER_INQUIRY = 0.4;
+  const BUILD_FEE = 3000;
+
+  const TIERS = [
+    { num: '01', name: 'FOUNDATION', price: 997, min: 0,     max: 9999.99 },
+    { num: '02', name: 'GROWTH',     price: 1497, min: 10000, max: 14999.99 },
+    { num: '03', name: 'SCALE',      price: 1997, min: 15000, max: 19999.99 },
+    { num: '04', name: 'APEX',       price: 2497, min: 20000, max: Infinity }
+  ];
 
   function fmt(n) { return n.toLocaleString('en-GB', { maximumFractionDigits: 0 }); }
+
+  function getTier(monthlyUplift) {
+    return TIERS.find(t => monthlyUplift >= t.min && monthlyUplift <= t.max) || TIERS[0];
+  }
 
   function recalc() {
     const inquiries = parseInt(inquiriesInput.value);
@@ -1343,6 +1722,24 @@
     document.getElementById('uplift-month').textContent = fmt(upliftMonth);
     document.getElementById('uplift-year').textContent = fmt(upliftYear);
     document.getElementById('hours-saved').textContent = hoursSaved;
+
+    // Tier placement
+    const tier = getTier(upliftMonth);
+    const annualRetainer = tier.price * 12;
+    const totalCost = BUILD_FEE + annualRetainer;
+    const netYear1 = upliftYear - totalCost;
+    const roi = totalCost > 0 ? (upliftYear / totalCost) : 0;
+
+    document.getElementById('tier-num').textContent = tier.num;
+    document.getElementById('tier-name').textContent = tier.name;
+    document.getElementById('tier-price').textContent = fmt(tier.price);
+    document.getElementById('net-year-1').textContent = fmt(netYear1);
+    document.getElementById('roi').textContent = roi.toFixed(1);
+
+    // Highlight active tier card
+    document.querySelectorAll('.tier-card').forEach(card => {
+      card.classList.toggle('active', card.dataset.tierCard === String(parseInt(tier.num)));
+    });
   }
 
   inquiriesInput.addEventListener('input', recalc);
