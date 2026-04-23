@@ -39,6 +39,15 @@
     font-weight: 300;
   }
 
+
+  /* Tabular numbers for all numeric displays (keeps sliders-driven numbers aligned) */
+  .big-stat, .control-value, .metric-value, .uplift-metric .value,
+  .tier-placement-name, .tier-result-value, .deal-banner-price,
+  .tier-price, .pricing-big, .stat .num {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+  }
+
   /* Subtle grid background */
   body::before {
     content: '';
@@ -170,7 +179,7 @@
     color: var(--accent);
   }
   .dedication-seal {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 10px;
     letter-spacing: 0.22em;
     color: var(--accent);
@@ -217,7 +226,7 @@
   }
   .section-badge {
     display: inline-block;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 11px;
     letter-spacing: 0.2em;
     color: var(--accent);
@@ -261,7 +270,7 @@
     position: relative;
   }
   .big-stat {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: clamp(110px, 14vw, 220px);
     font-weight: 700;
     line-height: 0.9;
@@ -293,7 +302,7 @@
   }
   .problem-points li:last-child { border-bottom: 1px solid var(--line); }
   .problem-points li .num {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 11px;
     color: var(--accent);
     letter-spacing: 0.14em;
@@ -344,7 +353,7 @@
     align-items: flex-end;
   }
   .control-value {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 38px;
     font-weight: 700;
     color: var(--accent);
@@ -465,7 +474,7 @@
     margin-bottom: 14px;
   }
   .metric-value {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 38px;
     font-weight: 700;
     color: var(--ink);
@@ -497,7 +506,7 @@
     opacity: 0.4;
   }
   .uplift-heading {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.22em;
@@ -519,7 +528,7 @@
     font-family: 'JetBrains Mono', monospace;
   }
   .uplift-metric .value {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 52px;
     line-height: 1;
     font-weight: 700;
@@ -549,7 +558,7 @@
   }
   .flow-step:last-child { border-right: none; }
   .flow-step-num {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 72px;
     font-weight: 800;
     line-height: 0.9;
@@ -625,7 +634,7 @@
     color: var(--bg);
   }
   .timeline-tab .week {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.2em;
@@ -686,7 +695,7 @@
   .timeline-pane li::before {
     content: counter(step, decimal-leading-zero);
     counter-increment: step;
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 11px;
     color: var(--accent);
     letter-spacing: 0.12em;
@@ -721,7 +730,7 @@
     background: var(--accent);
   }
   .pricing-side .label {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 10px;
     text-transform: uppercase;
     letter-spacing: 0.22em;
@@ -748,7 +757,7 @@
     font-weight: 300;
   }
   .pricing-big {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 84px;
     font-weight: 800;
     line-height: 0.95;
@@ -821,7 +830,7 @@
     margin-bottom: 8px;
   }
   .tier-placement-name {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 24px;
     font-weight: 700;
     color: var(--accent);
@@ -850,7 +859,7 @@
     margin-bottom: 6px;
   }
   .tier-result-value {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 28px;
     font-weight: 700;
     color: var(--ink);
@@ -895,7 +904,7 @@
     font-weight: 600;
   }
   .deal-banner-price {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 96px;
     font-weight: 800;
     line-height: 0.95;
@@ -929,7 +938,7 @@
     flex-wrap: wrap;
   }
   .deal-subheading-label {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 13px;
     color: var(--ink);
     text-transform: uppercase;
@@ -971,7 +980,7 @@
     box-shadow: 0 0 20px var(--accent-glow);
   }
   .tier-card .tier-badge {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 10px;
     letter-spacing: 0.22em;
     color: var(--muted);
@@ -995,7 +1004,7 @@
   }
   .tier-card.active .tier-name { color: var(--accent); }
   .tier-price {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 44px;
     font-weight: 800;
     line-height: 1;
@@ -1039,7 +1048,7 @@
     border: 1px solid var(--line);
   }
   .deal-includes-label {
-    font-family: 'Orbitron', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 11px;
     color: var(--accent);
     text-transform: uppercase;
